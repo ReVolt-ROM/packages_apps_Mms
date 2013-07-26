@@ -353,14 +353,10 @@
     <string name="pref_title_mms_delete">Multimedia message limit</string>
     <!-- Settings item for boolean option to display message notifications -->
     <string name="pref_title_notification_enabled">Notifications</string>
-    <!-- Settings item description for boolean message notification option -->
     <!-- Settings item for boolean option to vibrate during message notification -->
     <string name="pref_title_notification_vibrateWhen">Vibrate</string>
-    <!-- Settings item description for boolean vibrate option -->
     <!-- Settings item for entering ringtone selection screen -->
-    <string name="pref_title_notification_ringtone">Choose ringtone</string>
-    <!-- Settings item for setting the number of message to save for each conversation -->
-    <string name="pref_messages_to_save">Set number of messages</string>
+    <string name="pref_title_notification_ringtone">Sound</string>
     <!-- Settings screen, what to display for Ringtone when the user chooses "silent" [CHAR LIMIT=100]-->
     <string name="silent_ringtone">Silent</string>
 
@@ -374,6 +370,10 @@
         <item>Never</item>
     </string-array>
 
+    <string name="pref_messages_to_save">Set number of messages to save</string>
+    <!-- Settings screen, what to display for Ringtone when the user chooses "silent" [CHAR LIMIT=100]-->
+    <string name="silent_ringtone">Silent</string>
+
     <!-- The value to use when migrating from old versions for a true vibrate setting -->
     <string translatable="false" name="prefDefault_vibrate_true">always</string>
     <!-- The value to use when migrating from old versions for a false vibrate setting -->
@@ -385,9 +385,6 @@
         <item>silent</item>
         <item>never</item>
     </string-array>
-
-    <!-- Dialog title for the Vibrate dialog -->
-
     <!-- Settings item for boolean option to auto-retrieve incoming MMS messages -->
     <string name="pref_title_mms_auto_retrieval">Auto-retrieve</string>
     <!-- Settings item description for boolean MMS auto-retrieve option -->

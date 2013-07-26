@@ -183,6 +183,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     private CheckBoxPreference mMMSBreath;
     private Preference mTextAreaSize;
 
+
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -225,8 +226,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mDirectCall = (CheckBoxPreference) findPreference("direct_call_pref");
         mEnableNotificationsPref = (CheckBoxPreference) findPreference(NOTIFICATION_ENABLED);
         mEnablePrivacyModePref = (CheckBoxPreference) findPreference(PRIVACY_MODE_ENABLED);
-        mVibratePref = (CheckBoxPreference) findPreference(NOTIFICATION_VIBRATE);
-        mRingtonePref = (RingtonePreference) findPreference(NOTIFICATION_RINGTONE);
         mManageTemplate = findPreference(MANAGE_TEMPLATES);
         mGestureSensitivity = (ListPreference) findPreference(GESTURE_SENSITIVITY);
         mUnicodeStripping = (ListPreference) findPreference(UNICODE_STRIPPING);
@@ -259,6 +258,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mInputTypePref = (ListPreference) findPreference(INPUT_TYPE);
         mInputTypeEntries = getResources().getTextArray(R.array.pref_entries_input_type);
         mInputTypeValues = getResources().getTextArray(R.array.pref_values_input_type);
+
+        mVibratePref = (CheckBoxPreference) findPreference(NOTIFICATION_VIBRATE);
+        mRingtonePref = (RingtonePreference) findPreference(NOTIFICATION_RINGTONE);
 
         setMessagePreferences();
     }
@@ -341,6 +343,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
 
         // If needed, migrate vibration setting from a previous version
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         if (sharedPreferences.contains(NOTIFICATION_VIBRATE_WHEN)) {
             String vibrateWhen = sharedPreferences.
                     getString(MessagingPreferenceActivity.NOTIFICATION_VIBRATE_WHEN, null);
@@ -404,6 +407,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mInputTypePref.setValue(inputType);
         adjustInputTypeSummary(mInputTypePref.getValue());
         mInputTypePref.setOnPreferenceChangeListener(this);
+
     }
 
     private void setRingtoneSummary(String soundValue) {
@@ -820,7 +824,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         }
         mInputTypePref.setSummary(R.string.pref_keyboard_unknown);
     }
-
     // For the group mms feature to be enabled, the following must be true:
     //  1. the feature is enabled in mms_config.xml (currently on by default)
     //  2. the feature is enabled in the mms settings page
