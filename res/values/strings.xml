@@ -357,8 +357,6 @@
     <string name="pref_title_notification_vibrateWhen">Vibrate</string>
     <!-- Settings item for entering ringtone selection screen -->
     <string name="pref_title_notification_ringtone">Sound</string>
-    <!-- Settings screen, what to display for Ringtone when the user chooses "silent" [CHAR LIMIT=100]-->
-    <string name="silent_ringtone">Silent</string>
 
     <!-- The vibrate notification modes -->
     <string-array name="prefEntries_vibrateWhen">
