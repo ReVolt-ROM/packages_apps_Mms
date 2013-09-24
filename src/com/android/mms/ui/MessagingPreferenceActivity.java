@@ -78,7 +78,7 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     public static final String GROUP_MMS_MODE           = "pref_key_mms_group_mms";
     public static final String MMS_SAVE_LOCATION        = "pref_save_location";
     public static final String MSG_SIGNATURE            = "pref_msg_signature";
-    public static final String MMS_BREATH               = "mms_breath";
+    public static final String SMS_BREATH               = "sms_breath";
 
     // Emoji
     public static final String ENABLE_EMOJIS             = "pref_key_enable_emojis";
@@ -249,9 +249,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mUnicodeStripping = (ListPreference) findPreference(UNICODE_STRIPPING);
         mUnicodeStrippingEntries = getResources().getTextArray(R.array.pref_unicode_stripping_entries);
 
-        mMMSBreath = (CheckBoxPreference) findPreference(MMS_BREATH);
-        mMMSBreath.setChecked(mMMSBreath.isChecked());
-
         mSignature = (EditTextPreference) findPreference(MSG_SIGNATURE);
         mSignature.setOnPreferenceChangeListener(this);
         mSignature.setText(sp.getString(MSG_SIGNATURE, ""));
@@ -266,6 +263,9 @@ public class MessagingPreferenceActivity extends PreferenceActivity
         mMmsRetrievalDuringRoamingPref = (CheckBoxPreference) findPreference(RETRIEVAL_DURING_ROAMING);
         mMmsRetrievalDuringRoamingPref.setChecked(Settings.System.getInt(resolver,
                 Settings.System.MMS_AUTO_RETRIEVAL_ON_ROAMING, 0) == 1);
+        mMMSBreath = (CheckBoxPreference) findPreference(SMS_BREATH);
+        mMMSBreath.setChecked(Settings.System.getInt(resolver,
+                Settings.System.SMS_BREATH, 1) == 1);
 
         // QuickMessage
         mEnableQuickMessagePref = (CheckBoxPreference) findPreference(QUICKMESSAGE_ENABLED);
@@ -575,9 +575,6 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             // Update "enable quickmessage" checkbox state
             mEnableQuickMessagePref.setEnabled(!mEnablePrivacyModePref.isChecked());
 
-        } else if (preference == mMMSBreath) {
-            mMMSBreath.setChecked(mMMSBreath.isChecked());
-
         } else if (preference == mTextAreaSize) {
             new NumberPickerDialog(this,
                     mTextAreaSizeListener,
@@ -602,6 +599,11 @@ public class MessagingPreferenceActivity extends PreferenceActivity
             // Update the value in Settings.System
             Settings.System.putInt(getContentResolver(), Settings.System.MMS_AUTO_RETRIEVAL_ON_ROAMING,
                     mMmsRetrievalDuringRoamingPref.isChecked() ? 1 : 0);
+
+        } else if (preference == mMMSBreath) {
+            // Update the value in Settings.System
+            Settings.System.putInt(getContentResolver(), Settings.System.SMS_BREATH,
+                    mMMSBreath.isChecked() ? 1 : 0);
 
         } else if (preference == mMmsAutoRetrievialPref) {
             // Update the value in Settings.System

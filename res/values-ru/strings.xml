@@ -484,9 +484,9 @@
     <string name="msg_sig_summary">Задать подпись для сообщений</string>
     <string name="msg_sig_enter_text">Введите текст подписи</string>
 
-    <!-- Mms Breath -->
-    <string name="mms_breath">Пульсирующее SMS</string>
-    <string name="mms_breath_summary">Придает уведомлениям в строке состояния пульсирующий эффект</string>
+    <!-- Sms Breath -->
+    <string name="sms_breath">Пульсирующее SMS</string>
+    <string name="sms_breath_summary">Придает уведомлениям в строке состояния пульсирующий эффект</string>
 
     <!-- Settings item for the soft keyboard picker -->
     <string name="pref_title_input_type">Тип клавиатуры</string>
