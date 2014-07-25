@@ -718,8 +718,8 @@ public class MessagingPreferenceActivity extends PreferenceActivity
     }
 
     public static boolean getSmartCallEnabled(Context context) {
-        int enabled = Settings.AOKP.getInt(context.getContentResolver(),
-                          Settings.AOKP.SMART_PHONE_CALLER, 0);
+        int enabled = Settings.REVOLT.getInt(context.getContentResolver(),
+                          Settings.REVOLT.SMART_PHONE_CALLER, 0);
         boolean smartCallEnabled = (enabled != 0);
         return smartCallEnabled;
     }
